@@ -21,13 +21,15 @@ public class AppJava {
         //Criando o parse (convertendo String em lista) extrai os dados que interessam*
         JsonParser parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parserConversor(body);
+        GeradorDeFigurinha gerador = new GeradorDeFigurinha();
 
         //Exibir e manipular os dados que interessam (titulo,imagem,classificacao)
         for (Map<String, String> filme : listaDeFilmes) {
+            gerador.criar(filme.get("image"),filme.get("title"));
             System.out.println(filme.get("title"));
             System.out.println(filme.get("image"));
             System.out.println(filme.get("imDbRating"));
-            
+
         }
 
     }
